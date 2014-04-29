@@ -594,7 +594,7 @@ a {
   display: none; }
 
 body {
-  background: #eceadc;
+  background: white;
   font-family: Baskerville; }
 
 #bk-list {
@@ -607,14 +607,11 @@ body {
   width: 300px;
   height: 400px; }
 
-.bk-front, .bk-front:after, .bk-front .bk-cover, .bk-front .bk-cover-back, .bk-back, .bk-left, .bk-right {
+.bk-front, .bk-front:after, .bk-front .bk-cover, .bk-front .bk-cover-back, .bk-back, .bk-left {
   background: inherit !important;
   border: none; }
 
-.bk-list li .bk-book.bk-bookdefault:hover {
-  -webkit-transform: translateZ(0px); }
-
-.bk-list li .bk-book.is-dragging .bk-front {
+.bk-list li .bk-book.is-dragging, .bk-list li .bk-book.is-dragging .bk-front {
   -webkit-transition-duration: 10ms;
   -webkit-transition-timing-function: linear; }
 
@@ -623,7 +620,8 @@ body {
 
 .book-cover-image {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  -webkit-transform: translateZ(0px); }
 
 .bk-page {
   padding: 2em;
@@ -636,6 +634,9 @@ p.book-inner-text {
   padding: 1em;
   font-size: 9px; }
 
+p.book-back-text {
+  color: rgba(255, 255, 255, 0.5) !important; }
+
 .descriptive-text {
   max-width: 43%;
   font-size: 16px;
@@ -646,19 +647,27 @@ p.book-inner-text {
     font-style: italic; }
   .descriptive-text h1 {
     font-family: Helvetica Neue;
-    margin-bottom: 0.25em;
-    color: Tomato; }
+    margin-bottom: 0.25em; }
   .descriptive-text p {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    line-height: 1.5; }
   .descriptive-text a.button {
     font: inherit;
-    background: #9ecada;
+    background: gray;
     color: white;
     padding: 1em;
     border-radius: 1em;
     border: none; }
     .descriptive-text a.button:active {
-      background: #123371; }
+      background: black; }
+
+.bk-list li .bk-book.bk-viewinside {
+  -webkit-transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg);
+  -moz-transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg);
+  transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg); }
+
+.bk-list li .bk-book.bk-bookdefault:hover, .bk-list li .bk-book.bk-bookdefault {
+  -webkit-transform: rotate3d(0, -5, 1, 15deg) translateZ(0px); }
 
 .list-view.hide {
   display: none; }
