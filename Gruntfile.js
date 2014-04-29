@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {                             // target
                 files: {                        // dictionary of files
-                    'main.css': 'sass/*.scss'     // 'destination': 'source'
+                    'main.css': 'sass/main.scss'     // 'destination': 'source'
                 }
             }
         },
