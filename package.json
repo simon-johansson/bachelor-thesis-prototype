@@ -1,0 +1,31 @@
+{
+  "name": "ex-jobb-prototyp",
+  "version": "0.0.0",
+  "description": "Prototyper för ex-jobb, en dynamisk och en statisk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simon-johansson/ex-jobb-prototyp.git"
+  },
+  "keywords": [
+    "prototyp",
+    "statisk",
+    "dynamisk",
+    "feedback"
+  ],
+  "author": "Simon Johansson & Tor Bruce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simon-johansson/ex-jobb-prototyp/issues"
+  },
+  "homepage": "https://github.com/simon-johansson/ex-jobb-prototyp",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-sass": "~0.12.1",
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
