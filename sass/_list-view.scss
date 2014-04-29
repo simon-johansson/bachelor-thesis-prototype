@@ -1,5 +1,38 @@
 .list-view{
-  img{
-    max-height: 200px;
+  &.hide{
+    display: none;
+  }
+  input {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+}
+.book-list{
+  .book-item{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    img{
+      max-height: 100px;
+      margin: auto;
+      display: block;
+    }
+    .author{
+      text-transform: capitalize;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .title{
+      text-transform: capitalize;
+    }
+    .price {
+      position: absolute;
+      display: block;
+      top: 80px;
+      right: 0px;
+    }
+    .hightlighted{
+      background-color: #FFF519;
+    }
   }
 }
