@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+
+<h1>Book list</h1>
+<input type="text" id="search-book-list" autofocus/>
+<section class="list-view"></section>
+
+
+<script type="template" id="book-template">
+    <div>
+        <p><%= imageURL %></p>
+        <p>Title: <%= title %></p>
+        <p>By: <%= author %></p>
+        <p>Synopsis: <%= description %></p>
+    </div>
+    <br/><br/>
+</script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="js/book_list.js"></script>
+</body>
+</html>
