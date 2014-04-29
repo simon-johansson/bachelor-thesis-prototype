@@ -2,6 +2,13 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     // Project configuration.
     grunt.initConfig({
+        connect: {
+            server: {
+                options: {
+                    port: 8000,
+                }
+            }
+        },
         sass: {
             dist: {                             // target
                 files: {                        // dictionary of files
@@ -21,5 +28,5 @@ module.exports = function(grunt) {
     });
 
     // Default task(s).
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['connect', 'watch']);
 };
