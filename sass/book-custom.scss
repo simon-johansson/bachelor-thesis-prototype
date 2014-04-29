@@ -1,0 +1,31 @@
+#bk-list {
+    margin: 100px 50px;
+}
+
+#bk-list li {
+    float: none;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    height: 400px;
+}
+
+.bk-front,
+.bk-front:after,
+.bk-front .bk-cover,
+.bk-front .bk-cover-back,
+.bk-back,
+.bk-left,
+.bk-right {
+    background: inherit !important;
+    border: none;
+}
+
+.bk-list li .bk-book.bk-bookdefault:hover {
+    -webkit-transform: translateZ(0px);
+}
+
+.bk-list li .bk-book.is-dragging .bk-front {
+    -webkit-transition-duration: 10ms;
+    -webkit-transition-timing-function: linear;
+}
