@@ -1,18 +1,5 @@
 App = {
-    books: [
-        {
-            imageURL: "http://",
-            title: "Lord of the Rings",
-            author: "Tolkien",
-            description: "    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem eum id neque nobis nulla perferendis qui soluta vero voluptates."
-        },
-        {
-            imageURL: "http://",
-            title: "Hobbit",
-            author: "Tolkien",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem eum id neque nobis nulla perferendis qui soluta vero voluptates."
-        }
-    ],
+    books: DB.books,
     listTemplate: _.template($('#book-template').html()),
     renderBookList: function(data){
         var $listView =  $('.list-view');
