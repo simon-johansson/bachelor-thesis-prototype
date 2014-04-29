@@ -9,7 +9,8 @@ $(function() {
         dragDistance = 0;
         
     $(bookList).append(bookTemplate({
-        color: _(['tomato', 'khaki', 'pink', 'lavender', 'lightcoral', 'lightgreen', 'gold', 'lightskyblue']).sample()
+        color: _(['gray']).sample(),
+        imageUrl: 'omslag2.jpg'
     }));
     
     Hammer(bookList).on('dragstart', function(e) {
@@ -26,7 +27,7 @@ $(function() {
         if (dragDistance < -240) {
             openBook($('.bk-book'));
         } else {
-            $('.bk-bookdefault .bk-front').css('-webkit-transform', 'translate3d(0,0,20px) rotate3d(0,1,0,'+(dragDistance/2)+'deg)');
+            $('.bk-bookdefault .bk-front').css('-webkit-transform', 'translate3d(0,0,20px) rotate3d(0,1,0,'+(dragDistance/3)+'deg)');
         }
     });
     
@@ -36,7 +37,7 @@ $(function() {
         if (dragDistance > 180) {
             openBook($('.bk-book'));
         } else {
-            $('.bk-viewinside .bk-front').css('-webkit-transform', 'translate3d(0,0,20px) rotate3d(0,1,0,'+(-160+dragDistance/2)+'deg)');
+            $('.bk-viewinside .bk-front').css('-webkit-transform', 'translate3d(0,0,20px) rotate3d(0,1,0,'+(-160+dragDistance/3)+'deg)');
         }
     });
     
