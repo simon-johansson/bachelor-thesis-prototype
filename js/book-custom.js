@@ -11,8 +11,10 @@ $(function() {
             front: 'front',
             back: 'back',
             inside: 'inside',
+            none: 'none'
         },
-        state = states.front;
+        state = states.front,
+        toState = undefined;
         
     $(bookList).append(bookTemplate({
         color: _(['gray']).sample(),
@@ -30,23 +32,30 @@ $(function() {
         } else {
             state = states.front;
         };
-        console.log(state);
+        toState = states.none;
     });
     
     Hammer(bookList).on('dragend', function(e) {
-        openBook($('.bk-book'));
+        if (toState) {
+            openBook($('.bk-book'));
+        }
     });
     
     Hammer(bookList).on('dragleft', function(e) {
         e.gesture.preventDefault();
         dragDistance = e.gesture.deltaX;
-        if (state === states.back) {
+        if (toState === states.none) {
+            toState = (state === states.back) ? states.front : states.inside;
+        }
+        
+        if (toState === states.front) {
             if (dragDistance < -180) {
                 openBook($('.bk-book'));
             } else {
                 $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d(0,1,0,'+(180+dragDistance)+'deg)');
             }
-        } else {
+        }
+        if (toState === states.inside) {
             if (dragDistance < -240) {
                 openBook($('.bk-book'));
             } else {
@@ -58,13 +67,20 @@ $(function() {
     Hammer(bookList).on('dragright', function(e) {
         e.gesture.preventDefault();
         dragDistance = e.gesture.deltaX;
-        if (state === states.front) {
+        var perpendicularDistance = 0; // gör som en cappad ratio av x och y, från -1 till +1
+        if (toState === states.none) {
+            toState = (state === states.front) ? states.back : states.front;
+        }
+        
+        if (toState === states.back) {
             if (dragDistance > 120) {
                 openBook($('.bk-book'));
             } else {
-                $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d(0,1,0,'+dragDistance+'deg)');
+                $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d('+perpendicularDistance+',1,0,'+dragDistance+'deg)');
             }
-        } else {
+        }
+        
+        if (toState === states.front) {
             if (dragDistance > 180) {
                 openBook($('.bk-viewinside'));
             } else {
@@ -81,13 +97,20 @@ $(function() {
             // bestäm riktning att öppna
             if (dragDistance > 100 || (dragDistance > -100 && dragDistance < 2)) {
                 // vi ska åt höger
-                $('.bk-bookdefault').removeClass('bk-bookdefault').addClass('bk-viewback');
-                $('.bk-viewinside').removeClass('bk-viewinside').addClass('bk-bookdefault');
+                if (toState === states.back) {
+                    $('.bk-bookdefault').removeClass('bk-bookdefault').addClass('bk-viewback');
+                } else {
+                    $('.bk-viewinside').removeClass('bk-viewinside').addClass('bk-bookdefault');
+                }
             } else {
                 // vi ska åt vänster
-                $('.bk-bookdefault').removeClass('bk-bookdefault').addClass('bk-viewinside');
-                $('.bk-viewback').removeClass('bk-viewback').addClass('bk-bookdefault');
+                if (toState === states.inside) {
+                    $('.bk-bookdefault').removeClass('bk-bookdefault').addClass('bk-viewinside');
+                } else {
+                    $('.bk-viewback').removeClass('bk-viewback').addClass('bk-bookdefault');
+                }
             }
+            toState = undefined;
         }, 0);
     }
 });
