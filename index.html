@@ -4,15 +4,46 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="main.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
+    <div class="container"> 
+        <div class="main">
+            <ul id="bk-list" class="bk-list clearfix">
+
+            </ul>
+        </div>
+    </div><!-- /container -->
     
+    <script type="text/template" id="book-template">
+        <li>
+            <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
+                <div class="bk-front">
+                    <div class="bk-cover">
+                        <!-- Framsida -->
+                    </div>
+                    <div class="bk-cover-back">
+                        <!-- Insidan av pärm, framsida -->
+                    </div>
+                </div>
+                <div class="bk-page">
+                </div>
+                <div class="bk-back">
+                    
+                </div>
+                <div class="bk-right"></div>
+                <div class="bk-left"></div>
+                <div class="bk-top"></div>
+                <div class="bk-bottom"></div>
+            </div>
+        </li>
+    </script>
     
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/hammerjs/hammer.min.js"></script>
     <script src="js/books1.js"></script>
-
+    <script src="js/book-custom.js"></script>
 </body>
 </html>
