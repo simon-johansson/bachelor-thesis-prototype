@@ -614,7 +614,7 @@ body {
 .bk-list li .bk-book.bk-bookdefault:hover {
   -webkit-transform: translateZ(0px); }
 
-.bk-list li .bk-book.is-dragging .bk-front {
+.bk-list li .bk-book.is-dragging, .bk-list li .bk-book.is-dragging .bk-front {
   -webkit-transition-duration: 10ms;
   -webkit-transition-timing-function: linear; }
 
@@ -659,3 +659,18 @@ p.book-inner-text {
     border: none; }
     .descriptive-text a.button:active {
       background: #123371; }
+
+.bk-list li .bk-viewinside .bk-front {
+  -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg);
+  -moz-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg);
+  transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg); }
+
+.bk-list li .bk-book.bk-viewinside {
+  -webkit-transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg);
+  -moz-transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg);
+  transform: translate3d(-50px, 0, 250px) rotate3d(0, 1, 0, 0deg); }
+
+.bk-list li .bk-book.bk-viewback {
+  -webkit-transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
+  -moz-transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
+  transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg); }
