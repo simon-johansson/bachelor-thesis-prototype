@@ -637,7 +637,8 @@ p.book-inner-text {
   font-size: 9px; }
 
 .descriptive-text {
-  max-width: 40%;
+  max-width: 43%;
+  font-size: 16px;
   float: left;
   margin-left: 2em; }
   .descriptive-text h3 {
