@@ -669,33 +669,55 @@ p.book-back-text {
 .bk-list li .bk-book.bk-bookdefault:hover, .bk-list li .bk-book.bk-bookdefault {
   -webkit-transform: rotate3d(0, -5, 1, 15deg) translateZ(0px); }
 
-.list-view.hide {
-  display: none; }
-.list-view input {
-  margin-top: 20px !important;
-  margin-bottom: 0 !important; }
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
 
-.book-list .book-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid gray; }
-  .book-list .book-item img {
-    max-height: 100px;
-    margin: auto;
-    display: block; }
-  .book-list .book-item .author {
-    text-transform: capitalize;
-    font-style: italic;
-    margin-bottom: 10px; }
-  .book-list .book-item .title {
-    text-transform: capitalize; }
-  .book-list .book-item .price {
-    position: absolute;
-    display: block;
-    top: 80px;
-    right: 0px; }
-  .book-list .book-item .hightlighted {
-    background-color: #FFF519; }
+.list-view {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-transition: all 0.8s ease-in-out; }
+  .list-view.off-screen {
+    -webkit-transform: translate(-150%, 0px); }
+  .list-view input {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important; }
+  .list-view .book-list .book-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray; }
+    .list-view .book-list .book-item img {
+      max-height: 100px;
+      margin: auto;
+      display: block; }
+    .list-view .book-list .book-item .author {
+      text-transform: capitalize;
+      font-style: italic;
+      margin-bottom: 10px; }
+    .list-view .book-list .book-item .title {
+      text-transform: capitalize; }
+    .list-view .book-list .book-item .price {
+      position: absolute;
+      display: block;
+      top: 80px;
+      right: 0px; }
+    .list-view .book-list .book-item .hightlighted {
+      background-color: #FFF519; }
+
+.single-book-view {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-transition: all 0.8s ease-in-out; }
+  .single-book-view.off-screen {
+    -webkit-transform: translate(150%, 0px); }
+  .single-book-view .container {
+    margin: auto; }
+
+.hide {
+  display: none; }
 
 meta.foundation-version {
   font-family: "/5.2.2/"; }

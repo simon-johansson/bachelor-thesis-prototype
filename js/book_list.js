@@ -1,6 +1,6 @@
 App = {
     books: DB.books,
-    listTemplate: _.template($('#book-template').html()),
+    listTemplate: _.template($('#book-list-item').html()),
     renderBookList: function(data){
         var $listView =  $('.book-list');
         $listView.html("");
@@ -35,9 +35,11 @@ App = {
     },
     newView: function (ev) {
         if(window.location.hash.length){
-            $('.list-view').addClass('hide');
+            $('.list-view').addClass('off-screen');
+            $('.single-book-view').removeClass('off-screen');
         } else {
-            $('.list-view').removeClass('hide');
+            $('.single-book-view').addClass('off-screen');
+            $('.list-view').removeClass('off-screen');
         }
 
     },
