@@ -58,7 +58,6 @@
     Hammer(bookList).on('dragright', function(e) {
         e.gesture.preventDefault();
         dragDistance = e.gesture.deltaX;
-        var perpendicularDistance = 0; // gör som en cappad ratio av x och y, från -1 till +1
         if (toState === states.none) {
             toState = (state === states.front) ? states.back : states.front;
         }
@@ -67,7 +66,7 @@
             if (dragDistance > 120) {
                 openBook($('.bk-book'));
             } else {
-                $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d('+perpendicularDistance+',1,0,'+dragDistance+'deg)');
+                $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d(0,1,0,'+dragDistance+'deg)');
             }
         }
 
