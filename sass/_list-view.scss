@@ -41,12 +41,12 @@ html, body{
         display: block;
       }
       .author{
-        text-transform: capitalize;
+//        text-transform: capitalize;
         font-style: italic;
         margin-bottom: 10px;
       }
       .title{
-        text-transform: capitalize;
+//        text-transform: capitalize;
       }
       .price {
         position: absolute;
@@ -54,7 +54,7 @@ html, body{
         top: 80px;
         right: 0px;
       }
-      .hightlighted{
+      .highlighted{
         background-color: #FFF519;
       }
     }
@@ -84,6 +84,17 @@ footer{
   }
   .container{
     margin: auto;
+  }
+}
+
+.tag{
+  border: 1px solid lightgray;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  &.selected{
+    background: #ffff00;
   }
 }
 

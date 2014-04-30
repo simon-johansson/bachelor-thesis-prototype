@@ -1,5 +1,7 @@
 App = {
     books: DB.books,
+    tags: DB.tags,
+    filterTags: [],
     newView: function () {
         if(window.location.hash.length){
             App.ListView.hide();
@@ -59,41 +61,85 @@ App.ListView = {
     },
     highlighText: function (val) {
         if (val === '') {
-            $('span.hightlighted').removeClass('highlighted');
+            $('span.highlighted').removeClass('highlighted');
         }
         $('.book-item .title, .book-item .author').each(function(i, el){
-            var text = $(el).text();
-            text = text.toLowerCase().replace(val, ("<span class='hightlighted'>"+val+"</span>"));
+            var text = $(el).text(),
+                regX = new RegExp(val, "i");
+            var search = text.match(regX);
+            text = text.replace(search, ("<span class='highlighted'>"+search+"</span>"));
             $(el).html(text);
         });
     },
     newSearch: function () {
         var $this = $(this),
-            val = $this.val().toLowerCase();
+            val = $this.val();
 
         if(val.length > 0){
             var booksToShow = [];
             _.find(App.books, function(book){
-                if( book.title.toLowerCase().indexOf(val) > -1 ||
-                    book.author.toLowerCase().indexOf(val) > -1 ){
+                if( book.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
+                    book.author.toLowerCase().indexOf(val.toLowerCase()) > -1 ){
                     book.show = true;
                     booksToShow.push(book);
                 } else {
                     book.show = false;
                 }
             });
-            App.ListView.updateShowHide();
             App.ListView.highlighText(val);
         } else {
             _(App.books).each(function(book) {
                 book.show = true;
             });
-            App.ListView.updateShowHide();
             App.ListView.highlighText('');
         }
+        App.ListView.updateShowHide();
+    },
+    newTagFilter: function () {
+        var $this = $(this);
+        console.log($this.text());
+        App.ListView.$searchInput.val("");
+
+        $this.toggleClass('selected');
+        if($this.hasClass('selected')){
+            App.filterTags.push($this.text());
+        } else {
+            var index = _.indexOf(App.filterTags, $this.text());
+            App.filterTags.splice(index, 1);
+        }
+
+        console.log(App.filterTags.length);
+        if(App.filterTags.length){
+            var booksToShow = [];
+            App.books.forEach(function(book){
+                for(var i = 0; i <= book.tags.length; i += 1){
+                    console.log(book.tags[i]);
+                    var tag = book.tags[i];
+                    if( App.filterTags.indexOf(tag) !== -1 ){
+                        book.show = true;
+                        booksToShow.push(book);
+                        break
+                    } else {
+                        book.show = false;
+                    }
+                }
+            });
+        } else {
+            _(App.books).each(function(book) {
+                book.show = true;
+            });
+        }
+        App.ListView.updateShowHide();
     },
     bindEvents: function(){
         this.$searchInput.on('input change', this.newSearch);
+        $('.tag').on('click', this.newTagFilter);
+    },
+    renderTags: function () {
+        App.tags.forEach(function(el){
+            var span = $('<span>').addClass('tag').text(el);
+            $('.tags').append(span);
+        });
     },
     init: function(){
         // Cache elements
@@ -103,8 +149,9 @@ App.ListView = {
 
         this.template = _.template($('#book-list-item').html());
 
-        this.bindEvents();
         this.renderBookList(App.books);
+        this.renderTags();
+        this.bindEvents();
     }
 };
 

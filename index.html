@@ -14,14 +14,20 @@
         <div class="small-12 small-centered columns">
             <div class="row">
                 <div class="search-box small-8 small-offset-1 columns">
-                    <input type="text" placeholder="Sök efter en bok" search-book-list" autofocus/>
+                    <input type="text" placeholder="Sök efter en bok" autofocus/>
                 </div>
                 <div class="small-2 columns">
                     <button id="trigger-overlay" type="button">Meny</button>
                 </div>
             </div>
             <br/>
-            <div class="book-list small-10 small-offset-1 columns"></div>
+            <div class="row">
+                <div class="tags small-10 small-offset-1 columns">
+                </div>
+            </div>
+            <div class="row">
+                <div class="book-list small-10 small-offset-1 columns"></div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -64,7 +70,8 @@
         <h3>Författare: <%= author %></h3>
         <br />
         <p><%= description %></p>
-        <br />
+        <h5>Taggar: <%= tags.join(", ") %></h5>
+        <br /> <br/>
         <h1 style="display: inline-block; margin-right: 20px;"><%= price %>:-</h1><a class="button">Lägg i min kundkorg</a>
     </div>
 
@@ -103,6 +110,10 @@
         <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
         <p class="author">Av: <i><%= author %></i></p>
     </div>
+</script>
+
+<script type="text/template" id="tags-template">
+    <div class="label"><%= tag %></div>
 </script>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
