@@ -9,19 +9,29 @@
 </head>
 <body>
 
-
 <div class="list-view">
     <div class="row">
-        <div class="small-12 small-centered">
-            <div class="search-box small-10 small-offset-1">
-                <input type="text" placeholder="Sök efter en bok" search-book-list" autofocus/>
+        <div class="small-12 small-centered columns">
+            <div class="row">
+                <div class="search-box small-8 small-offset-1 columns">
+                    <input type="text" placeholder="Sök efter en bok" search-book-list" autofocus/>
+                </div>
+                <div class="small-2 columns">
+                    <button id="trigger-overlay" type="button">Meny</button>
+                </div>
             </div>
             <br/>
-            <div class="book-list small-10 small-offset-1"></div>
+            <div class="book-list small-10 small-offset-1 columns"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <footer>
+                <p>TILAS AB</p>
+            </footer>
         </div>
     </div>
 </div><!-- /list-view -->
-
 
 <div class="single-book-view off-screen">
     <div class="container ">
@@ -31,6 +41,19 @@
         </div>
     </div><!-- /container -->
 </div> <!-- /single-book-view -->
+
+<div class="overlay overlay-scale">
+    <button type="button" class="overlay-close">Close</button>
+    <nav>
+        <ul>
+            <li><a href="#">Hem</a></li>
+            <li><a href="#">Tips & Nyheter</a></li>
+            <li><a href="#">Kundservice</a></li>
+            <li><a href="#">Kundvagn</a></li>
+            <li><a href="#">Mitt Konto</a></li>
+        </ul>
+    </nav>
+</div>
 
 
 <!-- TEMPLATES -->
@@ -97,6 +120,9 @@
 <script src="bower_components/hammerjs/hammer.min.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <script src="bower_components/color-thief/dist/color-thief.min.js"></script>
+
+<script src="js/classie.js"></script>
+<script src="js/demo1.js"></script>
 <script src="js/books1.js"></script>
 <script src="js/database.js"></script>
 <script src="js/app.js"></script>
