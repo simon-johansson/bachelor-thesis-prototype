@@ -31,9 +31,12 @@ html, body{
     .book-item{
       padding-top: 20px;
       padding-bottom: 20px;
-      border-bottom: 1px solid gray;
+      width: 25%;
+      height: 250px;
+      float: left;
+      -webkit-transition: all .5s;
       img{
-        max-height: 100px;
+        max-height: 150px;
         margin: auto;
         display: block;
       }
@@ -86,4 +89,12 @@ footer{
 
 .hide{
   display: none;
+}
+
+.shown {
+    opacity: 1;
+}
+.hidden {
+    opacity: .3;
+    -webkit-transform: scale(.8);
 }

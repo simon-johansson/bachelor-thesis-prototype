@@ -98,20 +98,10 @@
 </script>
 
 <script type="text/template" id="book-list-item">
-    <div class="book-item">
-        <div class="row">
-            <div class="small-2 columns">
-                <img src="<%= imageURL %>" alt=""/>
-            </div>
-            <div class="small-8 columns">
-                <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
-                <p class="author">Av: <i><%= author %></i></p>
-                <p><%= shortDescription || description %></p>
-            </div>
-            <div class="small-2 columns">
-                <h2 class="price"><%= price %>:-</h2>
-            </div>
-        </div>
+    <div class="book-item <%= show ? 'shown' : 'hidden' %>">
+        <img src="<%= imageURL %>" alt=""/>
+        <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
+        <p class="author">Av: <i><%= author %></i></p>
     </div>
 </script>
 

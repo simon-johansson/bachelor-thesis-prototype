@@ -30,11 +30,37 @@ App.ListView = {
     },
     renderBookList: function(data){
         this.$bookList.html("");
-        data.forEach(function(el){
-            this.$bookList.append(this.template(el));
+        App.books.forEach(function(book){
+            if (book.show) {
+                var $el = $(this.template(book));
+                book.$el = $el;
+                this.$bookList.append(book.$el);
+            }
+        }, this);
+        App.books.forEach(function(book){
+            if (!book.show) {
+                var $el = $(this.template(book));
+                book.$el = $el;
+                this.$bookList.append(book.$el);
+            }
+        }, this);
+    },
+    updateShowHide: function(){
+        App.books.forEach(function(book){
+            if (book.show) {
+                book.$el.removeClass('hidden').addClass('shown');
+            }
+        }, this);
+        App.books.forEach(function(book){
+            if (!book.show) {
+                book.$el.removeClass('shown').addClass('hidden');
+            }
         }, this);
     },
     highlighText: function (val) {
+        if (val === '') {
+            $('span.hightlighted').removeClass('highlighted');
+        }
         $('.book-item .title, .book-item .author').each(function(i, el){
             var text = $(el).text();
             text = text.toLowerCase().replace(val, ("<span class='hightlighted'>"+val+"</span>"));
@@ -50,13 +76,20 @@ App.ListView = {
             _.find(App.books, function(book){
                 if( book.title.toLowerCase().indexOf(val) > -1 ||
                     book.author.toLowerCase().indexOf(val) > -1 ){
+                    book.show = true;
                     booksToShow.push(book);
+                } else {
+                    book.show = false;
                 }
             });
-            App.ListView.renderBookList(booksToShow);
+            App.ListView.updateShowHide();
             App.ListView.highlighText(val);
         } else {
-            App.ListView.renderBookList(App.books);
+            _(App.books).each(function(book) {
+                book.show = true;
+            });
+            App.ListView.updateShowHide();
+            App.ListView.highlighText('');
         }
     },
     bindEvents: function(){
@@ -89,7 +122,6 @@ App.BookView = {
     },
     renderNewBook: function(index){
         var bookData = App.books[index];
-        bookData.color = _(['gray']).sample();
         this.$bookContainer.html("");
         this.$bookContainer.append(this.template(bookData));
     },
