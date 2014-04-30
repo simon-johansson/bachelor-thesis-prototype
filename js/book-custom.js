@@ -1,12 +1,8 @@
-$(function() {
-    Books.init();
+
     
-    var bookTemplate = $('#book-template').text();
-    
-    bookTemplate = _(bookTemplate).template();
-    
-    var bookList = document.getElementById('bk-list'),
-        dragDistance = 0,
+    var bookList = document.getElementById('bk-list');
+
+    var dragDistance = 0,
         states = {
             front: 'front',
             back: 'back',
@@ -15,12 +11,7 @@ $(function() {
         },
         state = states.front,
         toState = undefined;
-        
-    $(bookList).append(bookTemplate({
-        color: _(['gray']).sample(),
-        imageUrl: 'omslag2.jpg'
-    }));
-    
+
     Hammer(bookList).on('dragstart', function(e) {
         dragDistance = 0;
         $('.bk-book').addClass('is-dragging');
@@ -34,20 +25,20 @@ $(function() {
         };
         toState = states.none;
     });
-    
+
     Hammer(bookList).on('dragend', function(e) {
         if (toState) {
             openBook($('.bk-book'));
         }
     });
-    
+
     Hammer(bookList).on('dragleft', function(e) {
         e.gesture.preventDefault();
         dragDistance = e.gesture.deltaX;
         if (toState === states.none) {
             toState = (state === states.back) ? states.front : states.inside;
         }
-        
+
         if (toState === states.front) {
             if (dragDistance < -180) {
                 openBook($('.bk-book'));
@@ -63,7 +54,7 @@ $(function() {
             }
         }
     });
-    
+
     Hammer(bookList).on('dragright', function(e) {
         e.gesture.preventDefault();
         dragDistance = e.gesture.deltaX;
@@ -71,7 +62,7 @@ $(function() {
         if (toState === states.none) {
             toState = (state === states.front) ? states.back : states.front;
         }
-        
+
         if (toState === states.back) {
             if (dragDistance > 120) {
                 openBook($('.bk-book'));
@@ -79,7 +70,7 @@ $(function() {
                 $('.bk-book').css('-webkit-transform', 'translate3d(0,0,0px) rotate3d('+perpendicularDistance+',1,0,'+dragDistance+'deg)');
             }
         }
-        
+
         if (toState === states.front) {
             if (dragDistance > 180) {
                 openBook($('.bk-viewinside'));
@@ -88,7 +79,7 @@ $(function() {
             }
         }
     });
-    
+
     function openBook($book) {
         $book.removeClass('is-dragging');
         setTimeout(function() {
@@ -113,4 +104,3 @@ $(function() {
             toState = undefined;
         }, 0);
     }
-});

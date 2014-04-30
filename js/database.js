@@ -41,8 +41,8 @@ books.forEach(function(book, index){
     var MAX_LEN = 150;
     book.index = index;
     if(book.description.length > MAX_LEN){
-        book.description =  book.description.slice(0, MAX_LEN);
-        book.description += "...";
+        book.shortDescription =  book.description.slice(0, MAX_LEN);
+        book.shortDescription += "...";
     }
 });
 

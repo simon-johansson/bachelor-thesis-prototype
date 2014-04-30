@@ -25,18 +25,9 @@
 
 <div class="single-book-view off-screen">
     <div class="container ">
+        <h4 class="tooltip">Öppna för att läsa!</h4>
         <div class="main">
-            <div class="descriptive-text">
-                <h1>Spionjägaren - Del 2</h1>
-                <h3>Författare: Olof Frånstedt</h3>
-                <br />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <br />
-                <a class="button">Lägg i min kundkorg</a>
-            </div>
-            <ul id="bk-list" class="bk-list clearfix">
-
-            </ul>
+            <!-- Template goes here -->
         </div>
     </div><!-- /container -->
 </div> <!-- /single-book-view -->
@@ -44,31 +35,43 @@
 
 <!-- TEMPLATES -->
 <script type="text/template" id="book-template">
-    <li>
-        <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
-            <div class="bk-front">
-                <div class="bk-cover">
-                    <!-- Framsida -->
-                    <img src="img/<%= imageUrl %>" class="book-cover-image"/>
+
+    <div class="descriptive-text">
+        <h1><%= title %></h1>
+        <h3>Författare: <%= author %></h3>
+        <br />
+        <p><%= description %></p>
+        <br />
+        <h1 style="display: inline-block; margin-right: 20px;"><%= price %>:-</h1><a class="button">Lägg i min kundkorg</a>
+    </div>
+
+    <ul id="bk-list" class="bk-list clearfix">
+        <li>
+            <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
+                <div class="bk-front">
+                    <div class="bk-cover">
+                        <!-- Framsida -->
+                        <img src="<%= imageURL %>" class="book-cover-image"/>
+                    </div>
+                    <div class="bk-cover-back">
+                        <!-- Insidan av pärm, framsida -->
+                    </div>
                 </div>
-                <div class="bk-cover-back">
-                    <!-- Insidan av pärm, framsida -->
+                <div class="bk-page">
+                    <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
+                <div class="bk-back">
+                    <p class="book-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="bk-right"></div>
+                <div class="bk-left"></div>
+                <div class="bk-top"></div>
+                <div class="bk-bottom"></div>
             </div>
-            <div class="bk-page">
-                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div class="bk-back">
-                <p class="book-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="bk-right"></div>
-            <div class="bk-left"></div>
-            <div class="bk-top"></div>
-            <div class="bk-bottom"></div>
-        </div>
-    </li>
+        </li>
+    </ul>
 </script>
 
 <script type="text/template" id="book-list-item">
@@ -80,7 +83,7 @@
             <div class="small-8 columns">
                 <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
                 <p class="author">Av: <i><%= author %></i></p>
-                <p><%= description %></p>
+                <p><%= shortDescription || description %></p>
             </div>
             <div class="small-2 columns">
                 <h2 class="price"><%= price %>:-</h2>
@@ -93,9 +96,9 @@
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/hammerjs/hammer.min.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="bower_components/color-thief/dist/color-thief.min.js"></script>
 <script src="js/books1.js"></script>
-<script src="js/book-custom.js"></script>
 <script src="js/database.js"></script>
-<script src="js/book_list.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
