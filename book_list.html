@@ -4,42 +4,97 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="main.css"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
 
-<div class="row">
-    <section class="main-view small-12 small-centered">
-        <h1>Book list</h1>
-        <input type="text" id="search-book-list" autofocus/>
 
-        <br/><br/>
+<div class="list-view">
+    <div class="row">
+        <div class="small-12 small-centered">
+            <div class="search-box small-10 small-offset-1">
+                <input type="text" placeholder="Sök efter en bok" search-book-list" autofocus/>
+            </div>
+            <br/>
+            <div class="book-list small-10 small-offset-1"></div>
+        </div>
+    </div>
+</div><!-- /list-view -->
 
-        <section class="list-view"></section>
-    </section>
-</div>
+
+<div class="single-book-view off-screen">
+    <div class="container ">
+        <div class="main">
+            <div class="descriptive-text">
+                <h1>Spionjägaren - Del 2</h1>
+                <h3>Författare: Olof Frånstedt</h3>
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <br />
+                <a class="button">Lägg i min kundkorg</a>
+            </div>
+            <ul id="bk-list" class="bk-list clearfix">
+
+            </ul>
+        </div>
+    </div><!-- /container -->
+</div> <!-- /single-book-view -->
 
 
-<script type="template" id="book-template">
+<!-- TEMPLATES -->
+<script type="text/template" id="book-template">
+    <li>
+        <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
+            <div class="bk-front">
+                <div class="bk-cover">
+                    <!-- Framsida -->
+                    <img src="img/<%= imageUrl %>" class="book-cover-image"/>
+                </div>
+                <div class="bk-cover-back">
+                    <!-- Insidan av pärm, framsida -->
+                </div>
+            </div>
+            <div class="bk-page">
+                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="book-inner-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="bk-back">
+                <p class="book-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="bk-right"></div>
+            <div class="bk-left"></div>
+            <div class="bk-top"></div>
+            <div class="bk-bottom"></div>
+        </div>
+    </li>
+</script>
+
+<script type="text/template" id="book-list-item">
     <div class="book-item">
         <div class="row">
             <div class="small-2 columns">
                 <img src="<%= imageURL %>" alt=""/>
             </div>
-            <div class="small-7 columns">
-                <h3><%= title %></h3> <br/>
-                <p>Av: <i><%= author %></i></p> <br/>
+            <div class="small-8 columns">
+                <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
+                <p class="author">Av: <i><%= author %></i></p>
                 <p><%= description %></p>
             </div>
             <div class="small-2 columns">
-                Pris:
+                <h2 class="price"><%= price %>:-</h2>
             </div>
         </div>
     </div>
-    <br/><br/>
 </script>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/hammerjs/hammer.min.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="js/books1.js"></script>
+<script src="js/book-custom.js"></script>
 <script src="js/database.js"></script>
 <script src="js/book_list.js"></script>
 </body>

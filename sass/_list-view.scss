@@ -1,5 +1,70 @@
+//*{
+//  box-sizing: border-box;
+//}
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .list-view{
-  img{
-    max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-transition: all 0.8s ease-in-out;
+  &.off-screen{
+    -webkit-transform: translate(-150%, 0px);
   }
+  input {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+  .book-list{
+//    position: absolute;
+//    top: 100px;
+//    bottom: 0px;
+    .book-item{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid gray;
+      img{
+        max-height: 100px;
+        margin: auto;
+        display: block;
+      }
+      .author{
+        text-transform: capitalize;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .title{
+        text-transform: capitalize;
+      }
+      .price {
+        position: absolute;
+        display: block;
+        top: 80px;
+        right: 0px;
+      }
+      .hightlighted{
+        background-color: #FFF519;
+      }
+    }
+  }
+}
+
+.single-book-view{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-transition: all 0.8s ease-in-out;
+  &.off-screen{
+    -webkit-transform: translate(150%, 0px);
+  }
+  .container{
+    margin: auto;
+  }
+}
+
+.hide{
+  display: none;
 }
