@@ -89,7 +89,6 @@ App.BookView = {
     },
     renderNewBook: function(index){
         var bookData = App.books[index];
-        bookData.color = _(['gray']).sample();
         this.$bookContainer.html("");
         this.$bookContainer.append(this.template(bookData));
     },
