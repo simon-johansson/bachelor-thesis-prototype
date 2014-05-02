@@ -102,7 +102,7 @@ var books =[
         author: "Sigge Eklund",
         description: "En majkväll försvinner elvaåriga Magda Horn från sitt hem medan föräldrarna äter middag på en restaurang i närheten. Trots att hon är föremål för så många gräl, så många sorger och omsorger, har hon egentligen varit osynlig länge. Hennes pappa, den uppburne förläggaren, och hennes mamma, den engagerade psykologen, är mästare på att spegla sig själva och att spegla sig i varandra. Men ingen ser Magda. Och en dag är hon borta.",
         price: "177",
-        color: "#FBF4E7",
+        color: "#D82858",
         tags: ["Skönlitteratur"],
     },
     {
@@ -145,13 +145,18 @@ var books =[
 ];
 
 books.forEach(function(book, index){
-    var MAX_LEN = 150;
+    var descriptionLen = 150;
+    var titleLen = 50;
     book.index = index;
     book.show = true;
     book.hideTitle = true;
-    if(book.description.length > MAX_LEN){
-        book.shortDescription =  book.description.slice(0, MAX_LEN);
+    if(book.description.length > descriptionLen){
+        book.shortDescription =  book.description.slice(0, descriptionLen);
         book.shortDescription += "...";
+    }
+    book.shortTitle = book.title;
+    if(book.shortTitle.length > titleLen){
+        book.shortTitle =  book.title.slice(0, titleLen);
     }
 //    console.log(book.tags);
     tags = _.union(book.tags, tags);

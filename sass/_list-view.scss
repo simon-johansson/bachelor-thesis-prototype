@@ -11,6 +11,7 @@ html, body{
   -webkit-transition: all 0.8s ease-in-out;
   &.off-screen{
     -webkit-transform: translate(-100%, 0px);
+//    -webkit-transition-delay: 0.8s; /* Safari */
   }
   input[type=text] {
     box-shadow: none;
@@ -113,9 +114,21 @@ footer{
   -webkit-transition: all 0.7s ease-in-out;
   &.off-screen{
     -webkit-transform: translate(100%, 0px);
+    -webkit-transition-delay: 0.2s; /* Safari */
   }
   .container{
     margin: auto;
+  }
+  .rygg-title{
+    -webkit-transform: rotate(90deg);
+    padding-left: 30px;
+    font-family: georgia;
+    color: rgba(255,255,255,0.5) !important;
+    white-space: nowrap;
+//    width: 500px;
+//    text-align: center;
+//    border: 1px solid black;
+
   }
 }
 
