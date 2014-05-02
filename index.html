@@ -33,8 +33,11 @@
             <div class="row">
                 <div class="tags small-7 small-offset-1 columns">
                 </div>
-                <div class="search-box small-3 columns end">
-                    <input type="text" placeholder="Sök efter en bok" />
+                <div class="search-box small-3 columns">
+                    <input type="text" class="has-no-text" placeholder="Sök författare/titel" />
+                </div>
+                <div class="small-1 columns end">
+                    &nbsp;
                 </div>
             </div>
             <div class="row">
@@ -77,8 +80,8 @@
 <!-- TEMPLATES -->
 <script type="text/template" id="book-template">
 
+    <a class="back-button" href="#">&#9664;</a>
     <div class="descriptive-text">
-        <a class="button back-button" href="#">tillbaka</a>
         <h1><%= title %></h1>
         <h3>Författare: <%= author %></h3>
         <br />
@@ -89,7 +92,7 @@
     </div>
     <ul id="bk-list" class="bk-list clearfix">
         <li>
-            <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
+            <div class="bk-book rotate-in-animation book-1 bk-bookdefault" style="background: <%= color %>">
                 <div class="bk-front tease">
                     <div class="bk-cover">
                         <!-- Framsida -->

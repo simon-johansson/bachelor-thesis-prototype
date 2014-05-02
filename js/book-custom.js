@@ -14,6 +14,7 @@
 
     Hammer(bookList).on('dragstart', function(e) {
         dragDistance = 0;
+        $('.bk-book').removeClass('rotate-in-animation');
         $('.bk-book').addClass('is-dragging');
         var $book = $('.bk-book');
         if ($book.hasClass('bk-viewback')) {

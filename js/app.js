@@ -87,6 +87,7 @@ App.ListView = {
             val = $this.val();
 
         if(val.length > 0){
+            $('.search-box input').removeClass('has-no-text');
             var booksToShow = [];
             _.find(App.books, function(book){
                 if( book.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
@@ -100,6 +101,7 @@ App.ListView = {
             });
             App.ListView.highlighText(val);
         } else {
+            $('.search-box input').addClass('has-no-text');
             _(App.books).each(function(book) {
                 book.show = true;
                 book.hideTitle = true;
@@ -200,6 +202,7 @@ App.BookView = {
         Hammer(bookList).on('dragstart', function(e) {
             dragDistance = 0;
             $(this).find('.tease').removeClass('tease');
+            $('.bk-book').removeClass('rotate-in-animation');
             $('.bk-book').addClass('is-dragging');
             var $book = $('.bk-book');
             if ($book.hasClass('bk-viewback')) {
@@ -316,21 +319,6 @@ App.BookView = {
 };
 
 App.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
