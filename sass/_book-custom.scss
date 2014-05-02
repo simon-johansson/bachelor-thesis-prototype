@@ -114,7 +114,11 @@ p.book-back-text {
 }
 
 .tease {
-  -webkit-animation: tease 5s infinite; /* Chrome, Safari, Opera */
+  -webkit-animation: tease 5s 5s infinite; /* Chrome, Safari, Opera */
+}
+
+.bk-list li .bk-book.rotate-in-animation {
+  -webkit-animation: rotate-in 3s .3s cubic-bezier(.2,1.3,.3,.98); /* Chrome, Safari, Opera */
 }
 
 /* Chrome, Safari, Opera */
@@ -127,5 +131,11 @@ p.book-back-text {
   }
   60% {
     -webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-8deg);
+  }
+}
+
+@-webkit-keyframes rotate-in {
+  0% {
+    -webkit-transform: translateX(300px) rotate3d(0,1,0,-120deg);
   }
 }
