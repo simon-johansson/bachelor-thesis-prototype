@@ -1976,7 +1976,7 @@ html, body {
   .list-view .book-list .book-item {
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 25%;
+    width: 20%;
     height: 200px;
     float: left;
     -webkit-transition: all 0.5s; }
@@ -2077,8 +2077,10 @@ footer {
   opacity: 1; }
 
 .hidden {
-  opacity: 0.3;
-  -webkit-transform: scale(0.8); }
+  /*     opacity: .3; */
+  -webkit-filter: blur(20px);
+  -webkit-transform: scale(0.7) translateZ(0px);
+  pointer-events: none; }
 
 .search-box {
   position: relative;
