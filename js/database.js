@@ -80,7 +80,7 @@ var books =[
     },
     {
         imageURL: "https://www.adlibris.com/images/282745/viktiga-kartor-for-aventyrare-och-dagdrommare.jpg",
-        title: "Viktiga kartor : för äventyrare och dagdrömmare",
+        title: "Viktiga kartor: för äventyrare och dagdrömmare",
         author: "Sarah Sheppard",
         description: "Sarah Sheppard är expert på fantasifulla, humoristiska, inspirerande faktaböcker för barn. Hennes dinosaurieböcker är levande legender. Nu är hon tillbaka med en riktig drömbok för nyfikna kartresenärer som vill uppleva spänning och faror utan att på riktigt riskera liv och lem. Var hittar man giftiga djur, mystiska platser, ädelstenar, skatter, vulkaner, jordbävningar, de högsta bergen och de djupaste delarna av haven? Efter att ha läst denna äventyrsatlas vet man precis vart man ska åka om man vill uppleva äventyr på riktigt eller få nytt bränsle till sina dagdrömmar. En unik kartbok som ger läsaren hjärtklappning över allt fantastiskt, spännande och mystiskt som finns på vår planet!",
         price: "117",
@@ -107,7 +107,7 @@ var books =[
     },
     {
         imageURL: "https://www.adlibris.com/images/254902/den-sanna-historien-om-pinocchios-nasa-en-roman-om-ett-brott.jpg",
-        title: "Den sanna historien om Pinocchios näsa : en roman om ett brott",
+        title: "Den sanna historien om Pinocchios näsa: en roman om ett brott",
         author: "Leif G. W. Persson",
         description: 'Leif GW Persson, kriminolog och författare, är tillbaka med sin elfte bok. Han har sedan sjuttiotalet varit en av våra ledande brottsexperter, inte minst som professor i polisforskning vid Rikspolisstyrelsen. Nu kommer Den sanna historien om Pinocchios näsa. "Den här romanen är en ond saga för vuxna barn och om det inte hade varit för den siste tsaren av Ryssland, Nikolaj II, Englands premiärminister Sir Winston Churchill, Rysslands president Vladimir Putin och kriminalkommissarie Evert Bäckström vid Västerortspolisen i Stockholm, skulle det som den handlar om aldrig ha hänt. I den meningen är det en berättelse om det samlade och slutliga resultatet av de handlingar som fyra män genomför över en period på mer än hundra år. Fyra män som aldrig träffade varandra, som förvisso levde sina liv i skilda världar, och där den äldste av dem blev mördad fyrtio år innan den yngste av dem ens var född. Och som så ofta förr, oavsett i vilket sällskap eller sammanhang som han nu har hamnat, är det också Evert Bäckström som kommer att sätta punkt för historien."',
         price: "198",
@@ -116,7 +116,7 @@ var books =[
     },
     {
         imageURL: "https://www.adlibris.com/images/674379/green-kitchen-stories-lackra-vegetariska-vardagsrecept.jpg",
-        title: "Green kitchen stories : läckra vegetariska vardagsrecept",
+        title: "Green kitchen stories: läckra vegetariska vardagsrecept",
         author: "David Frenkiel & Luise Vindahl",
         description: 'David Frenkiel och Luise Vindahl står för nydanande och spännande vegetarisk mat. Deras succéblogg Green Kitchen Stories inspirerar folk över hela världen att laga god och nyttig vege­tarisk mat med naturliga ingredienser. I kokboken Green Kitchen Stories finns över 100 av deras läckraste favoritrecept. Genom att kombinera vanliga skafferivaror och färska råvaror i säsong visar David och Luise hur lätt det är att laga närings­rika och välbalanserade rätter varje dag.',
         price: "208",
