@@ -82,12 +82,11 @@
         <h1><%= title %></h1>
         <h3>Författare: <%= author %></h3>
         <br />
-<a class="button"><strong><%= price %>:-</strong> Lägg i min kundkorg</a>
+<a class="button js-add-to-cart"><strong><%= price %>:-</strong> Lägg i min kundkorg</a>
         <br />
         <p><%= description %></p>
         <h5>Taggar: <%= tags.join(", ") %></h5>
     </div>
-
     <ul id="bk-list" class="bk-list clearfix">
         <li>
             <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
@@ -115,6 +114,9 @@
                 <div class="bk-top"></div>
                 <div class="bk-bottom"></div>
             </div>
+        </li>
+        <li>
+            <div class="no-more-book hidden"></div>
         </li>
     </ul>
 </script>

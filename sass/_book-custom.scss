@@ -129,3 +129,42 @@ p.book-back-text {
     -webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-8deg);
   }
 }
+
+.on-top{
+  z-index: 9999;
+}
+
+.bk-list li .bk-book.bk-viewside {
+  -webkit-transition: all 1s;
+  -webkit-transform: rotate3d(0,1,0,90deg);
+  &.added-to-cart{
+    -webkit-transition: all 1.5s;
+    -webkit-transform:
+      translate3d(1300px, -2450px, -12000px)
+      rotate3d(0, 1, 0, 85deg)
+      rotateX(0deg)
+      rotateY(0deg)
+      rotateZ(-10deg);
+    & .bk-left{
+//      -webkit-transform: rotate3d(0, 1, 0, -90deg) scale(0.5, 1);
+    }
+  }
+}
+
+.no-more-book {
+  width: 340px;
+  height: 450px;
+  border: 1px dashed rgba(0,0,0,0.3);
+//  background: rgba(0,0,0,0.1);
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  z-index: -1;
+  -webkit-transition: all 1s;
+  &.shown {
+    opacity: 1;
+  }
+  &.hidden {
+    opacity: 0;
+  }
+}

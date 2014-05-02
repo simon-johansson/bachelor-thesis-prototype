@@ -1950,6 +1950,30 @@ p.book-back-text {
   60% {
     -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -8deg); } }
 
+.on-top {
+  z-index: 9999; }
+
+.bk-list li .bk-book.bk-viewside {
+  -webkit-transition: all 1s;
+  -webkit-transform: rotate3d(0, 1, 0, 90deg); }
+  .bk-list li .bk-book.bk-viewside.added-to-cart {
+    -webkit-transition: all 1.5s;
+    -webkit-transform: translate3d(1300px, -2450px, -12000px) rotate3d(0, 1, 0, 85deg) rotateX(0deg) rotateY(0deg) rotateZ(-10deg); }
+
+.no-more-book {
+  width: 340px;
+  height: 450px;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  z-index: -1;
+  -webkit-transition: all 1s; }
+  .no-more-book.shown {
+    opacity: 1; }
+  .no-more-book.hidden {
+    opacity: 0; }
+
 html, body {
   width: 100%;
   height: 100%;

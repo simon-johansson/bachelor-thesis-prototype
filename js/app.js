@@ -291,6 +291,20 @@ App.BookView = {
                 toState = undefined;
             }, 0);
         }
+
+        $(".js-add-to-cart").on('click', function(){
+            $(".bk-list").addClass("on-top");
+
+            $(".bk-book")
+                .addClass('bk-viewside')
+                .find('.bk-front')
+                    .removeClass('tease');
+
+            setTimeout(function(){
+                $(".bk-book").addClass('bk-viewside added-to-cart')
+                $('.no-more-book').removeClass('hidden');
+            }, 500)
+        });
     },
     init: function(){
         // Cache elements
