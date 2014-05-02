@@ -12,6 +12,7 @@
     <div class="row">
         <div class="small-12 small-centered columns">
             <div class="row">
+<<<<<<< HEAD
                 <div class="small-3 small-offset-1 columns">
                     <h1><em>Tilas</em></h1>
                 </div>
@@ -19,6 +20,10 @@
                     <span class="selected-link">Våra böcker</span>
                     <span>Just nu</span>
                     <span>Om Tilas Förlag</span>
+=======
+                <div class="search-box small-8 small-offset-1 columns">
+                    <input type="text" placeholder="Sök efter en bok" autofocus/>
+>>>>>>> b43bb1ab17b8c5f8d82bffd64c201b1e038734d5
                 </div>
             </div>
         </div>
@@ -33,7 +38,13 @@
                 </div>
             </div>
             <br/>
-            <div class="book-list small-10 small-offset-1 columns"></div>
+            <div class="row">
+                <div class="tags small-10 small-offset-1 columns">
+                </div>
+            </div>
+            <div class="row">
+                <div class="book-list small-10 small-offset-1 columns"></div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -72,18 +83,20 @@
 <script type="text/template" id="book-template">
 
     <div class="descriptive-text">
+        <a class="button back-button" href="#">tillbaka</a>
         <h1><%= title %></h1>
         <h3>Författare: <%= author %></h3>
         <br />
         <p><%= description %></p>
-        <br />
+        <h5>Taggar: <%= tags.join(", ") %></h5>
+        <br /> <br/>
         <h1 style="display: inline-block; margin-right: 20px;"><%= price %>:-</h1><a class="button">Lägg i min kundkorg</a>
     </div>
 
     <ul id="bk-list" class="bk-list clearfix">
         <li>
             <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
-                <div class="bk-front">
+                <div class="bk-front tease">
                     <div class="bk-cover">
                         <!-- Framsida -->
                         <img src="<%= imageURL %>" class="book-cover-image"/>
@@ -110,11 +123,15 @@
 </script>
 
 <script type="text/template" id="book-list-item">
-    <div class="book-item <%= show ? 'shown' : 'hidden' %>">
-        <img src="<%= imageURL %>" alt=""/>
-        <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
+    <div class="book-item <%= hideTitle ? 'hide-title' : '' %> <%= show ? 'shown' : 'hidden' %>">
+        <a href="#<%= index %>"><img src="<%= imageURL %>" alt=""/></a>
+        <a href="#<%= index %>"><h4 class="title"><%= title %></h4></a>
         <p class="author">Av: <i><%= author %></i></p>
     </div>
+</script>
+
+<script type="text/template" id="tags-template">
+    <div class="label"><%= tag %></div>
 </script>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

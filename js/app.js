@@ -1,5 +1,7 @@
 App = {
     books: DB.books,
+    tags: DB.tags,
+    filterTags: [],
     newView: function () {
         if(window.location.hash.length){
             App.ListView.hide();
@@ -18,7 +20,7 @@ App = {
         Books.init();
         App.ListView.init();
         App.BookView.init();
-    }
+    },
 };
 
 App.ListView = {
@@ -49,51 +51,102 @@ App.ListView = {
         App.books.forEach(function(book){
             if (book.show) {
                 book.$el.removeClass('hidden').addClass('shown');
+                if (book.hideTitle === false) {
+                    book.$el.removeClass('hide-title');
+                } else {
+                    book.$el.addClass('hide-title');
+                }
             }
         }, this);
         App.books.forEach(function(book){
             if (!book.show) {
-                book.$el.removeClass('shown').addClass('hidden');
+                book.$el.removeClass('shown').addClass('hidden hide-title');
             }
         }, this);
     },
     highlighText: function (val) {
         if (val === '') {
-            $('span.hightlighted').removeClass('highlighted');
+            $('span.highlighted').removeClass('highlighted');
         }
         $('.book-item .title, .book-item .author').each(function(i, el){
-            var text = $(el).text();
-            text = text.toLowerCase().replace(val, ("<span class='hightlighted'>"+val+"</span>"));
+            var text = $(el).text(),
+                regX = new RegExp(val, "i");
+            var search = text.match(regX);
+            text = text.replace(search, ("<span class='highlighted'>"+search+"</span>"));
             $(el).html(text);
         });
     },
     newSearch: function () {
         var $this = $(this),
-            val = $this.val().toLowerCase();
+            val = $this.val();
 
         if(val.length > 0){
             var booksToShow = [];
             _.find(App.books, function(book){
-                if( book.title.toLowerCase().indexOf(val) > -1 ||
-                    book.author.toLowerCase().indexOf(val) > -1 ){
+                if( book.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
+                    book.author.toLowerCase().indexOf(val.toLowerCase()) > -1 ){
                     book.show = true;
+                    book.hideTitle = false;
                     booksToShow.push(book);
                 } else {
                     book.show = false;
                 }
             });
-            App.ListView.updateShowHide();
             App.ListView.highlighText(val);
         } else {
             _(App.books).each(function(book) {
                 book.show = true;
+                book.hideTitle = true;
             });
-            App.ListView.updateShowHide();
             App.ListView.highlighText('');
         }
+        App.ListView.updateShowHide();
+    },
+    newTagFilter: function () {
+        var $this = $(this);
+        console.log($this.text());
+        App.ListView.$searchInput.val("");
+
+        $this.toggleClass('selected');
+        if($this.hasClass('selected')){
+            App.filterTags.push($this.text());
+        } else {
+            var index = _.indexOf(App.filterTags, $this.text());
+            App.filterTags.splice(index, 1);
+        }
+
+        console.log(App.filterTags.length);
+        if(App.filterTags.length){
+            var booksToShow = [];
+            App.books.forEach(function(book){
+                for(var i = 0; i <= book.tags.length; i += 1){
+                    console.log(book.tags[i]);
+                    var tag = book.tags[i];
+                    if( App.filterTags.indexOf(tag) !== -1 ){
+                        book.show = true;
+                        booksToShow.push(book);
+                        break
+                    } else {
+                        book.show = false;
+                    }
+                }
+            });
+        } else {
+            _(App.books).each(function(book) {
+                book.show = true;
+            });
+        }
+        App.ListView.updateShowHide();
     },
     bindEvents: function(){
         this.$searchInput.on('input change', this.newSearch);
+        $('.tag').on('click', this.newTagFilter);
+    },
+    renderTags: function () {
+        App.tags.forEach(function(el){
+            var span = $('<span>').addClass('tag').text(el);
+            $('.tags').append(span);
+        });
     },
     init: function(){
         // Cache elements
@@ -103,8 +156,9 @@ App.ListView = {
 
         this.template = _.template($('#book-list-item').html());
 
-        this.bindEvents();
         this.renderBookList(App.books);
+        this.renderTags();
+        this.bindEvents();
     }
 };
 
@@ -136,6 +190,10 @@ App.BookView = {
             },
             state = states.front,
             toState = undefined;
+
+        $('.bk-book').on('mouseenter', function(){
+           $(this).find('.bk-front').removeClass('tease');
+        });
 
         Hammer(bookList).on('dragstart', function(e) {
             dragDistance = 0;
