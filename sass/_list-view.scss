@@ -10,7 +10,7 @@ html, body{
 .list-view{
   -webkit-transition: all 0.8s ease-in-out;
   &.off-screen{
-    -webkit-transform: translate(-150%, 0px);
+    -webkit-transform: translate(-100%, 0px);
   }
   input[type=text] {
     box-shadow: none;
@@ -48,6 +48,7 @@ html, body{
         margin-bottom: 10px;
       }
       .title{
+        font-weight: normal;
 //        text-transform: capitalize;
       }
       .price {
@@ -57,7 +58,8 @@ html, body{
         right: 0px;
       }
       .highlighted{
-        background-color: #FFF519;
+        font-weight: bold;
+        text-decoration: underline;
       }
     }
     & > div:last-child{
@@ -88,7 +90,6 @@ body {
             padding: 10px;
             &.selected-link {
                 background: gray;
-                border-radius: 3px;
                 color: #e0e0e0;
             }
         }
@@ -109,9 +110,9 @@ footer{
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.7s ease-in-out;
   &.off-screen{
-    -webkit-transform: translate(150%, 0px);
+    -webkit-transform: translate(100%, 0px);
   }
   .container{
     margin: auto;
@@ -119,13 +120,15 @@ footer{
 }
 
 .tag{
-  border: 1px solid lightgray;
+  border: 1px solid #e0e0e0;
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
   display: inline-block;
   &.selected{
-    background: #ffff00;
+    border-color: gray;
+    color: #e0e0e0;
+    background: gray;
   }
 }
 

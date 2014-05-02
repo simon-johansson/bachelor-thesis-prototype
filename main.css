@@ -1851,12 +1851,15 @@ body {
   background: white; }
 
 #bk-list {
-  margin: 100px 50px; }
+  margin: 100px 50px;
+  pointer-events: none; }
 
 #bk-list li {
   float: none;
   position: absolute;
+  pointer-events: all;
   right: 0;
+  top: 60px;
   width: 300px;
   height: 400px; }
 
@@ -1913,8 +1916,6 @@ p.book-back-text {
     border: none; }
     .descriptive-text a.button:active {
       background: black; }
-    .descriptive-text a.button.back-button {
-      z-index: 999; }
 
 .tooltip {
   -webkit-transition: all 0.7s;
@@ -1958,7 +1959,7 @@ html, body {
 .list-view {
   -webkit-transition: all 0.8s ease-in-out; }
   .list-view.off-screen {
-    -webkit-transform: translate(-150%, 0px); }
+    -webkit-transform: translate(-100%, 0px); }
   .list-view input[type=text] {
     box-shadow: none;
     margin-top: 20px !important;
@@ -1982,13 +1983,16 @@ html, body {
     .list-view .book-list .book-item .author {
       font-style: italic;
       margin-bottom: 10px; }
+    .list-view .book-list .book-item .title {
+      font-weight: normal; }
     .list-view .book-list .book-item .price {
       position: absolute;
       display: block;
       top: 80px;
       right: 0px; }
     .list-view .book-list .book-item .highlighted {
-      background-color: #FFF519; }
+      font-weight: bold;
+      text-decoration: underline; }
   .list-view .book-list > div:last-child {
     border-bottom: none; }
 
@@ -2014,7 +2018,6 @@ body {
       padding: 10px; }
       .page-header .navigation span.selected-link {
         background: gray;
-        border-radius: 3px;
         color: #e0e0e0; }
 
 footer {
@@ -2029,20 +2032,22 @@ footer {
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-transition: all 0.8s ease-in-out; }
+  -webkit-transition: all 0.7s ease-in-out; }
   .single-book-view.off-screen {
-    -webkit-transform: translate(150%, 0px); }
+    -webkit-transform: translate(100%, 0px); }
   .single-book-view .container {
     margin: auto; }
 
 .tag {
-  border: 1px solid lightgray;
+  border: 1px solid #e0e0e0;
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
   display: inline-block; }
   .tag.selected {
-    background: #ffff00; }
+    border-color: gray;
+    color: #e0e0e0;
+    background: gray; }
 
 .hide {
   display: none; }

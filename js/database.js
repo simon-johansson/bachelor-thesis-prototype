@@ -40,7 +40,7 @@ var books =[
         description: "Pallkragen passar lika bra i täppan på landet som i villakvarteret och på bakgården i stan. Den kan bli ett permanent inslag i trädgården eller fungera som en tillfällig odlingsyta. Inte att undra på att den i dag är den vanligaste formen för grönsaksodling i mindre skala att odla i pallkrage har blivit en folkrörelse.",
         price: "567",
         color: "#472",
-        tags: ["Djur & Natur", "Hem & Trädgård"],
+        tags: ["Hem & Trädgård"],
     },
     {
         imageURL: "https://www.adlibris.com/images/2845108/med-kansla-for-barns-sjalvkansla.jpg",
@@ -58,7 +58,7 @@ var books =[
         description: "I juli 2009 knuffas en man ut från sjätte våningen i ett hus i Stockholmsförorten Bredäng. Polisens mordutredning avslöjar att den döde mannen hade en böjelse för våldsamt gruppsex. I förhör säger ett av hans unga kvinnliga offer att en av förövarna är polis. Hon visar fram en tidningsbild. Polisen Jonas Trolle får en chock. Mannen på fotografiet är Göran Lindberg, Kapten Klänning, rektor på Polishögskolan, en förkämpe för jämställdhet som arbetat mot kränkningar och sexism.",
         price: "188",
         color: "#921",
-        tags: ["Psykologi & Pedagogik", "Ekonomi & Juridik"],
+        tags: ["Psykologi & Pedagogik"],
     },
     {
         imageURL: "https://www.adlibris.com/images/41118/traning-for-nyblivna-mammor.jpg",

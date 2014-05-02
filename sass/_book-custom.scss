@@ -4,12 +4,15 @@ body {
 
 #bk-list {
     margin: 100px 50px;
+    pointer-events: none;
 }
 
 #bk-list li {
     float: none;
     position: absolute;
+    pointer-events: all;
     right: 0;
+    top: 60px;
     width: 300px;
     height: 400px;
 }
@@ -84,9 +87,6 @@ p.book-back-text {
         &:active {
           background: black;
         }
-      &.back-button{
-        z-index: 999;
-      }
     }
 }
 

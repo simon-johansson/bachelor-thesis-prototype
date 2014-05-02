@@ -11,11 +11,17 @@ App = {
             App.ListView.show();
         }
     },
+    fastClick: function() {
+        window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+    },
     bindEvents: function(){
         $(window).on('hashchange', this.newView);
     },
     init: function(){
         this.bindEvents();
+        this.fastClick();
 
         Books.init();
         App.ListView.init();
@@ -191,12 +197,9 @@ App.BookView = {
             state = states.front,
             toState = undefined;
 
-        $('.bk-book').on('mouseenter', function(){
-           $(this).find('.bk-front').removeClass('tease');
-        });
-
         Hammer(bookList).on('dragstart', function(e) {
             dragDistance = 0;
+            $(this).find('.tease').removeClass('tease');
             $('.bk-book').addClass('is-dragging');
             var $book = $('.bk-book');
             if ($book.hasClass('bk-viewback')) {
