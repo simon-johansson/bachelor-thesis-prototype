@@ -660,6 +660,8 @@ p.book-back-text {
     border: none; }
     .descriptive-text a.button:active {
       background: black; }
+    .descriptive-text a.button.back-button {
+      z-index: 999; }
 
 .tooltip {
   -webkit-transition: all 0.7s;
@@ -678,6 +680,21 @@ p.book-back-text {
 
 .bk-list li .bk-book.bk-bookdefault:hover, .bk-list li .bk-book.bk-bookdefault {
   -webkit-transform: rotate3d(0, -5, 1, 15deg) translateZ(0px); }
+
+.tease {
+  -webkit-animation: tease 5s infinite;
+  /* Chrome, Safari, Opera */ }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes tease {
+  20% {
+    -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -8deg); }
+
+  40% {
+    -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, 0deg); }
+
+  60% {
+    -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -8deg); } }
 
 html, body {
   width: 100%;
@@ -706,7 +723,12 @@ html, body {
     height: 250px;
     float: left;
     -webkit-transition: all 0.5s; }
+    .list-view .book-list .book-item.hide-title img {
+      max-height: 200px; }
+    .list-view .book-list .book-item.hide-title .title, .list-view .book-list .book-item.hide-title .author {
+      display: none; }
     .list-view .book-list .book-item img {
+      -webkit-transition: all 0.5s;
       max-height: 150px;
       margin: auto;
       display: block; }

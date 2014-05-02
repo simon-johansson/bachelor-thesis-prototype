@@ -35,7 +35,16 @@ html, body{
       height: 250px;
       float: left;
       -webkit-transition: all .5s;
+      &.hide-title{
+        img{
+          max-height: 200px;
+        }
+        .title, .author{
+          display: none;
+        }
+      }
       img{
+        -webkit-transition: all .5s;
         max-height: 150px;
         margin: auto;
         display: block;

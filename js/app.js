@@ -20,7 +20,7 @@ App = {
         Books.init();
         App.ListView.init();
         App.BookView.init();
-    }
+    },
 };
 
 App.ListView = {
@@ -51,11 +51,16 @@ App.ListView = {
         App.books.forEach(function(book){
             if (book.show) {
                 book.$el.removeClass('hidden').addClass('shown');
+                if (book.hideTitle === false) {
+                    book.$el.removeClass('hide-title');
+                } else {
+                    book.$el.addClass('hide-title');
+                }
             }
         }, this);
         App.books.forEach(function(book){
             if (!book.show) {
-                book.$el.removeClass('shown').addClass('hidden');
+                book.$el.removeClass('shown').addClass('hidden hide-title');
             }
         }, this);
     },
@@ -81,6 +86,7 @@ App.ListView = {
                 if( book.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
                     book.author.toLowerCase().indexOf(val.toLowerCase()) > -1 ){
                     book.show = true;
+                    book.hideTitle = false;
                     booksToShow.push(book);
                 } else {
                     book.show = false;
@@ -90,6 +96,7 @@ App.ListView = {
         } else {
             _(App.books).each(function(book) {
                 book.show = true;
+                book.hideTitle = true;
             });
             App.ListView.highlighText('');
         }
@@ -183,6 +190,10 @@ App.BookView = {
             },
             state = states.front,
             toState = undefined;
+
+        $('.bk-book').on('mouseenter', function(){
+           $(this).find('.bk-front').removeClass('tease');
+        });
 
         Hammer(bookList).on('dragstart', function(e) {
             dragDistance = 0;

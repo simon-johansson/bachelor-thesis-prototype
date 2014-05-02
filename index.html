@@ -66,6 +66,7 @@
 <script type="text/template" id="book-template">
 
     <div class="descriptive-text">
+        <a class="button back-button" href="#">tillbaka</a>
         <h1><%= title %></h1>
         <h3>Författare: <%= author %></h3>
         <br />
@@ -78,7 +79,7 @@
     <ul id="bk-list" class="bk-list clearfix">
         <li>
             <div class="bk-book book-1 bk-bookdefault" style="background: <%= color %>">
-                <div class="bk-front">
+                <div class="bk-front tease">
                     <div class="bk-cover">
                         <!-- Framsida -->
                         <img src="<%= imageURL %>" class="book-cover-image"/>
@@ -105,9 +106,9 @@
 </script>
 
 <script type="text/template" id="book-list-item">
-    <div class="book-item <%= show ? 'shown' : 'hidden' %>">
-        <img src="<%= imageURL %>" alt=""/>
-        <a href="#<%= index %>"><h3 class="title"><%= title %></h3></a>
+    <div class="book-item <%= hideTitle ? 'hide-title' : '' %> <%= show ? 'shown' : 'hidden' %>">
+        <a href="#<%= index %>"><img src="<%= imageURL %>" alt=""/></a>
+        <a href="#<%= index %>"><h4 class="title"><%= title %></h4></a>
         <p class="author">Av: <i><%= author %></i></p>
     </div>
 </script>
