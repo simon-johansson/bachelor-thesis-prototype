@@ -87,6 +87,7 @@ App.ListView = {
             val = $this.val();
 
         if(val.length > 0){
+            $('.search-box input').removeClass('has-no-text');
             var booksToShow = [];
             _.find(App.books, function(book){
                 if( book.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
@@ -100,6 +101,7 @@ App.ListView = {
             });
             App.ListView.highlighText(val);
         } else {
+            $('.search-box input').addClass('has-no-text');
             _(App.books).each(function(book) {
                 book.show = true;
                 book.hideTitle = true;
@@ -302,21 +304,6 @@ App.BookView = {
 };
 
 App.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

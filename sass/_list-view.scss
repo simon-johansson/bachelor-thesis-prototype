@@ -14,8 +14,6 @@ html, body{
   }
   input[type=text] {
     box-shadow: none;
-    margin-top: 20px !important;
-    margin-bottom: 0 !important;
   }
   #trigger-overlay{
       
@@ -143,3 +141,24 @@ footer{
     opacity: .3;
     -webkit-transform: scale(.8);
 }
+
+
+
+
+.search-box {
+    position: relative;
+    height: 60px;
+    input[type=text] {
+        height: 100%;
+        font-size: 24px;
+        font-weight: 400;
+        background: #fafafa;
+        &.has-no-text {
+            border: none;
+        }
+    }
+}
+
+
+
+

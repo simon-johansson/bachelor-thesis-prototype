@@ -1961,9 +1961,7 @@ html, body {
   .list-view.off-screen {
     -webkit-transform: translate(-100%, 0px); }
   .list-view input[type=text] {
-    box-shadow: none;
-    margin-top: 20px !important;
-    margin-bottom: 0 !important; }
+    box-shadow: none; }
   .list-view .book-list .book-item {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -2058,6 +2056,17 @@ footer {
 .hidden {
   opacity: 0.3;
   -webkit-transform: scale(0.8); }
+
+.search-box {
+  position: relative;
+  height: 60px; }
+  .search-box input[type=text] {
+    height: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    background: #fafafa; }
+    .search-box input[type=text].has-no-text {
+      border: none; }
 
 /* Overlay style */
 .overlay {
