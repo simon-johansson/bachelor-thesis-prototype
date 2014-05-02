@@ -2032,9 +2032,17 @@ footer {
   width: 100%;
   -webkit-transition: all 0.7s ease-in-out; }
   .single-book-view.off-screen {
-    -webkit-transform: translate(100%, 0px); }
+    -webkit-transform: translate(100%, 0px);
+    -webkit-transition-delay: 0.2s;
+    /* Safari */ }
   .single-book-view .container {
     margin: auto; }
+  .single-book-view .rygg-title {
+    -webkit-transform: rotate(90deg);
+    padding-left: 30px;
+    font-family: georgia;
+    color: rgba(255, 255, 255, 0.5) !important;
+    white-space: nowrap; }
 
 .tag {
   border: 1px solid #e0e0e0;
