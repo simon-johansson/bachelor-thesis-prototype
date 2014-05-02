@@ -4,30 +4,23 @@
 html, body{
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .list-view{
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 100%;
   -webkit-transition: all 0.8s ease-in-out;
   &.off-screen{
     -webkit-transform: translate(-150%, 0px);
   }
-  input {
+  input[type=text] {
+    box-shadow: none;
     margin-top: 20px !important;
     margin-bottom: 0 !important;
   }
   #trigger-overlay{
-    margin-top: 20px !important;
-    margin-bottom: 0 !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+      
   }
   .book-list{
-//    position: absolute;
-//    top: 100px;
-//    bottom: 0px;
     .book-item{
       padding-top: 20px;
       padding-bottom: 20px;
@@ -62,6 +55,35 @@ html, body{
       border-bottom: none;
     }
   }
+}
+body {
+    padding-top: 75px;
+    padding-bottom: 100px;
+}
+.page-header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    padding: 20px 0 25px;
+    background: #e0e0e0;
+    color: black;
+    h1 {
+        font-weight: 300;
+    }
+    .navigation {
+        text-align: right;
+        span {
+            display: inline-block;
+            padding: 10px;
+            &.selected-link {
+                background: gray;
+                border-radius: 3px;
+                color: #e0e0e0;
+            }
+        }
+    }
 }
 
 footer{
