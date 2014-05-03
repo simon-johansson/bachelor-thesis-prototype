@@ -1936,7 +1936,11 @@ p.book-back-text {
   -webkit-transform: rotate3d(0, -5, 1, 15deg) translateZ(0px); }
 
 .tease {
-  -webkit-animation: tease 5s infinite;
+  -webkit-animation: tease 5s 5s infinite;
+  /* Chrome, Safari, Opera */ }
+
+.bk-list li .bk-book.rotate-in-animation {
+  -webkit-animation: rotate-in 3s 0.3s cubic-bezier(0.2, 1.3, 0.3, 0.98);
   /* Chrome, Safari, Opera */ }
 
 /* Chrome, Safari, Opera */
@@ -1950,6 +1954,10 @@ p.book-back-text {
   60% {
     -webkit-transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -8deg); } }
 
+@-webkit-keyframes rotate-in {
+  0% {
+    -webkit-transform: translateX(300px) rotate3d(0, 1, 0, -120deg); } }
+
 .on-top {
   z-index: 9999; }
 
@@ -1961,17 +1969,16 @@ p.book-back-text {
     -webkit-transform: translate3d(1300px, -2450px, -12000px) rotate3d(0, 1, 0, 85deg) rotateX(0deg) rotateY(0deg) rotateZ(-10deg); }
 
 .no-more-book {
-  width: 340px;
-  height: 450px;
-  border: 1px dashed rgba(0, 0, 0, 0.3);
+  width: 300px;
+  height: 400px;
+  border: 10px dashed rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
   position: absolute;
-  top: 40px;
-  right: 0px;
+  top: 0px;
+  left: -50px;
   z-index: -1;
   -webkit-transition: all 1s; }
-  .no-more-book.shown {
-    opacity: 1; }
-  .no-more-book.hidden {
+  .no-more-book.not-no-more-book {
     opacity: 0; }
 
 html, body {
@@ -1980,23 +1987,24 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto; }
 
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
 .list-view {
   -webkit-transition: all 0.8s ease-in-out; }
   .list-view.off-screen {
     -webkit-transform: translate(-100%, 0px); }
   .list-view input[type=text] {
-    box-shadow: none;
-    margin-top: 20px !important;
-    margin-bottom: 0 !important; }
+    box-shadow: none; }
   .list-view .book-list .book-item {
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 25%;
-    height: 250px;
+    width: 20%;
+    height: 200px;
     float: left;
     -webkit-transition: all 0.5s; }
     .list-view .book-list .book-item.hide-title img {
-      max-height: 200px; }
+      max-height: 180px; }
     .list-view .book-list .book-item.hide-title .title, .list-view .book-list .book-item.hide-title .author {
       display: none; }
     .list-view .book-list .book-item img {
@@ -2017,15 +2025,19 @@ html, body {
     .list-view .book-list .book-item .highlighted {
       font-weight: bold;
       text-decoration: underline; }
+    .list-view .book-list .book-item:active {
+      -webkit-transition-duration: 100ms;
+      -webkit-transform: scale(1.05); }
   .list-view .book-list > div:last-child {
     border-bottom: none; }
 
+/*
 body {
-  padding-top: 75px;
-  padding-bottom: 100px; }
-
+    padding-top: 75px;
+    padding-bottom: 100px;
+}
+*/
 .page-header {
-  position: fixed;
   z-index: 100;
   top: 0;
   width: 100%;
@@ -2088,8 +2100,43 @@ footer {
   opacity: 1; }
 
 .hidden {
-  opacity: 0.3;
-  -webkit-transform: scale(0.8); }
+  /*     opacity: .3; */
+  -webkit-filter: blur(20px);
+  -webkit-transform: scale(0.7) translateZ(0px);
+  pointer-events: none; }
+
+.search-box {
+  position: relative;
+  height: 60px; }
+  .search-box input[type=text] {
+    height: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    background: #fafafa; }
+    .search-box input[type=text].has-no-text {
+      border: none; }
+
+.back-button {
+  text-align: center;
+  width: 50px;
+  font-size: 40px;
+  margin-left: -50px;
+  height: 500px;
+  float: left;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  -webkit-animation: fading 2s linear; }
+  .off-screen .back-button {
+    opacity: 0; }
+  .back-button:active {
+    color: black; }
+
+@-webkit-keyframes fading {
+  0%, 30% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
 
 /* Overlay style */
 .overlay {

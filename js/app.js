@@ -305,7 +305,7 @@ App.BookView = {
 
             setTimeout(function(){
                 $(".bk-book").addClass('bk-viewside added-to-cart')
-                $('.no-more-book').removeClass('hidden');
+                $('.no-more-book').removeClass('not-no-more-book');
             }, 500)
         });
     },
