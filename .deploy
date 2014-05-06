@@ -1,0 +1,2 @@
+!#bin/bash
+scp -r dist/* ssh cajo4072@triton.dsv.su.se:public_html/ex-jobb
