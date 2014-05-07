@@ -295,7 +295,10 @@ App.BookView = {
             }, 0);
         }
 
-        $(".js-add-to-cart").on('click', function(){
+
+        $(".js-add-to-cart").on('click', this.addBookToCart);
+    },
+    addBookToCart: function(){
             $(".bk-list").addClass("on-top");
 
             $(".bk-book")
@@ -303,11 +306,24 @@ App.BookView = {
                 .find('.bk-front')
                     .removeClass('tease');
 
+            $('.empty-shelf').addClass('fade-out');
+
             setTimeout(function(){
-                $(".bk-book").addClass('bk-viewside added-to-cart')
+                $(".bk-book").addClass('added-to-cart');
                 $('.no-more-book').removeClass('not-no-more-book');
-            }, 500)
-        });
+
+
+                setTimeout(function(arguments) {
+                    var bookIndex = $(".bk-book").data("index"),
+                        bookData = App.books[bookIndex],
+                        template = _.template($('#book-in-shelf-template').html());
+
+                    $('.empty-shelf').addClass('hide');
+                    $('.books-container').removeClass('text-center');
+                    $('.book-shelf .books-container').append(template(bookData));
+                    $(".bk-book").addClass('fade-out');
+                }, 1400);
+            }, 500);
     },
     init: function(){
         // Cache elements

@@ -140,10 +140,38 @@ var books =[
         price: "261",
         color: "#989C9D",
         tags: ["Resor & Geografi"],
+    },
+    {
+        imageURL: "https://www.adlibris.com/images/70693/underbara-dagar-framfor-oss-en-biografi-over-olof-palme.jpg",
+        title: "Underbara dagar framför oss : en biografi över Olof Palme",
+        author: "Henrik Berggren",
+        description: 'Detta är den stora, definitiva och internationellt gångbara boken om Olof Palme och hans tid. Den rör sig från tysta lägenheter på Östermalm i Stockholm till kokande metropoler i Sydostasien, från privata internatskolor till socialdemokratiska kursgårdar, från lantligt herrgårdsliv i Sörmland till sjaskiga drugstores i den amerikanska södern. ',
+        price: "89",
+        color: "#040404",
+        tags: ["Biografier & Memoarer"],
+    },
+    {
+        imageURL: "https://www.adlibris.com/images/305310/html-och-css-boken.jpg",
+        title: "HTML och CSS-boken",
+        author: "Rolf Staflin",
+        description: 'Boken börjar från grunden och innehåller allt du behöver veta för att skriva webbsidor. Författaren beskriver systematiskt, med hundratals exempel, hur du lägger in rätt taggar så att dina webbsidor får det utseende och den funktion du vill. Du kan ha stor glädje av att kunna HTML även om du använder andra program som skapar HTML-kod, eller översätter färdiga dokument till HTML.',
+        price: "195",
+        color: "#0C0410",
+        tags: ["Datorer & IT"],
+    },
+    {
+        imageURL: "https://www.adlibris.com/images/401833/livet.jpg",
+        title: "Livet",
+        author: "Keith Richards",
+        description: 'Som gitarrist och låtskrivare i Rolling Stones skapade Keith Richards låtarna som skakade världen, och han levde - och lever fortfarande - den ursprungliga rock n’ roll-livsstilen. Nu berättar äntligen huvudpersonen själv om sitt stormiga liv. Hur han var besatt av att lyssna på skivor med Chuck Berry och Muddy Waters, lärde sig att spela gitarr och bildade band tillsammans med Mick Jagger och Brian Jones. Om när Rolling Stones blev berömda och om de ökända knarktillslagen som förtjänade honom bilden som fredlös folkhjälte. Hur han skrev odödliga riff, som de i Jumping Jack Flash och Honky Tonk Women. Om kärleken till Anita Pallenberg och om Brian Jones död. Om skatteflykten till Frankrike, ihärdiga turnéer över USA, isolering och missbruk. Om kärleken till Patti Hansen. Om det bittra uppbrottet med Mick Jagger och hur de så småningom blev sams igen. Om äktenskap, familj, soloalbum och Xpensive Winos, och ”the road that goes on forever”. ',
+        price: "29",
+        color: "#444539",
+        tags: ["Biografier & Memoarer"],
     }
 
 ];
 
+books = _.shuffle(books);
 books.forEach(function(book, index){
     var descriptionLen = 150;
     var titleLen = 50;
@@ -158,13 +186,8 @@ books.forEach(function(book, index){
     if(book.shortTitle.length > titleLen){
         book.shortTitle =  book.title.slice(0, titleLen);
     }
-//    console.log(book.tags);
+
     tags = _.union(book.tags, tags);
-//    book.tags.forEach(function(el){
-//        if(tags.indexOf(el) === -1){
-//            tags.push(el);
-//        }
-//    });
 });
 
 DB.books = books;

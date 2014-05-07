@@ -150,13 +150,14 @@ p.book-back-text {
   &.added-to-cart{
     -webkit-transition: all 1.5s;
     -webkit-transform:
-      translate3d(1300px, -2450px, -12000px)
+      translate3d(1100px, -2850px, -14000px)
       rotate3d(0, 1, 0, 85deg)
       rotateX(0deg)
       rotateY(0deg)
       rotateZ(-10deg);
-    & .bk-left{
-//      -webkit-transform: rotate3d(0, 1, 0, -90deg) scale(0.5, 1);
+    &.fade-out{
+      -webkit-transition: all .5s;
+      opacity: 0;
     }
   }
 }

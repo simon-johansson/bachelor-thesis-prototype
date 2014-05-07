@@ -17,10 +17,15 @@
                 <div class="small-3 small-offset-1 columns">
                     <h1><em>Tilas</em></h1>
                 </div>
-                <div class="navigation small-7 columns end">
+                <div class="navigation small-5 columns">
                     <span class="selected-link">Våra böcker</span>
                     <span>Just nu</span>
                     <span>Om Tilas Förlag</span>
+                </div>
+                <div class="book-shelf small-2 columns end">
+                    <div class="books-container text-center">
+                        <span class="empty-shelf">Din Bokhylla</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +97,7 @@
     </div>
     <ul id="bk-list" class="bk-list clearfix">
         <li>
-            <div class="bk-book rotate-in-animation book-1 bk-bookdefault" style="background: <%= color %>">
+            <div class="bk-book rotate-in-animation book-1 bk-bookdefault" style="background: <%= color %>" data-index="<%= index %>">
                 <div class="bk-front tease">
                     <div class="bk-cover">
                         <!-- Framsida -->
@@ -132,8 +137,8 @@
     </div>
 </script>
 
-<script type="text/template" id="tags-template">
-    <div class="label"><%= tag %></div>
+<script type="text/template" id="book-in-shelf-template">
+    <span class="book-in-shelf" style="background: <%= color %>"></span>
 </script>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
