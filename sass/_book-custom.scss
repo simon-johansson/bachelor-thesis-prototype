@@ -148,7 +148,7 @@ p.book-back-text {
   -webkit-transition: all 1s;
   -webkit-transform: rotate3d(0,1,0,90deg);
   &.added-to-cart{
-    -webkit-transition: all 1.5s;
+    -webkit-transition: all 0.9s;
     -webkit-transform:
       translate3d(1100px, -2850px, -14000px)
       rotate3d(0, 1, 0, 85deg)
@@ -156,7 +156,7 @@ p.book-back-text {
       rotateY(0deg)
       rotateZ(-10deg);
     &.fade-out{
-      -webkit-transition: all .5s;
+      -webkit-transition: all .6s;
       opacity: 0;
     }
   }

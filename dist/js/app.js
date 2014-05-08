@@ -341,7 +341,6 @@ App.BookView = {
                 $(".bk-book").addClass('added-to-cart');
                 $('.no-more-book').removeClass('not-no-more-book');
 
-
                 setTimeout(function(arguments) {
                     var bookIndex = $(".bk-book").data("index"),
                         bookData = App.books[bookIndex],
@@ -349,9 +348,13 @@ App.BookView = {
 
                     $('.empty-shelf').addClass('hide');
                     $('.books-container').removeClass('text-center');
-                    $('.book-shelf .books-container').append(template(bookData));
+                    $('.book-shelf .books-container').append(template(bookData)); 
+                }, 900);
+
+                setTimeout(function(arguments) {
                     $(".bk-book").addClass('fade-out');
-                }, 1400);
+                }, 400);
+
             }, 500);
     },
     init: function(){
