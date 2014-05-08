@@ -2093,6 +2093,37 @@ footer {
     color: #e0e0e0;
     background: gray; }
 
+body.first-page {
+  background-image: url(img/first-page.png);
+  background-repeat: no-repeat;
+  background-position: center 120px;
+  min-height: 900px; }
+  body.first-page > * {
+    display: none; }
+  body.first-page .page-header {
+    display: block; }
+  body.first-page #first-page-link-regions {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+    width: 800px; }
+    body.first-page #first-page-link-regions div {
+      position: absolute; }
+      body.first-page #first-page-link-regions div.book-list-link {
+        height: 30px;
+        width: 200px;
+        top: 50px;
+        left: 600px; }
+      body.first-page #first-page-link-regions div.look-through-book {
+        height: 35px;
+        width: 170px;
+        top: 330px;
+        left: 0px; }
+
+#first-page-link-regions {
+  display: none; }
+
 .hide {
   display: none; }
 

@@ -24,10 +24,37 @@ App = {
         this.fastClick();
 
         Books.init();
+        App.FirstPage.init();
         App.ListView.init();
         App.BookView.init();
     },
 };
+
+App.FirstPage = {
+    init: function() {
+        var pageLoadMilliseconds = 260;
+        $('.book-list-link').click(function(e) {
+            var self = this;
+            $(self).addClass('selected-link');
+            setTimeout(function() {
+                $('body').removeClass('first-page');
+            }, pageLoadMilliseconds);
+        });
+        $('#logo-first-page-link').click(function(e) {
+            $('.book-list-link').removeClass('selected-link');
+            setTimeout(function() {
+                $('body').addClass('first-page');
+            }, pageLoadMilliseconds);
+        });
+        $('.look-through-book').click(function(e) {
+            $('.book-list-link').addClass('selected-link');
+            $('body').removeClass('first-page');
+            setTimeout(function() {
+                window.location.hash = '#11';
+            }, pageLoadMilliseconds);
+        });
+    }
+}
 
 App.ListView = {
     hide: function(){
