@@ -8,6 +8,7 @@ module.exports = function(grunt) {
                     port: 8000,
                     protocol: 'http',
                     hostname: '*',
+                    base: 'dist',
                     livereload: true,
                 }
             }
@@ -15,7 +16,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {                             // target
                 files: {                        // dictionary of files
-                    'main.css': 'sass/main.scss'     // 'destination': 'source'
+                    'dist/main.css': 'sass/main.scss'     // 'destination': 'source'
                 }
             }
         },
@@ -23,8 +24,8 @@ module.exports = function(grunt) {
             css: {
                 files: [
                     'sass/*.scss',
-                    'js/**/*.js',
-                    '*.html',
+                    'dist/js/**/*.js',
+                    'dist/*.html',
                 ],
                 tasks: ['sass'],
                 options: {

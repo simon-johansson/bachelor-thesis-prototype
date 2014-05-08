@@ -101,6 +101,34 @@ body {
             }
         }
     }
+    .book-shelf{
+      border-bottom: 5px solid #996633;
+      // text-align: center;
+      height: 38px;
+      .books-container{
+        height: 45px;
+        &.text-center{
+          padding: 10px;
+          text-align: center;
+        }
+        .empty-shelf{
+          margin-top: 20px;
+          // font-weight: bold;
+          color: rgba(0,0,0,0.5);
+          -webkit-transition: all .5s;
+          &.fade-out{
+            opacity: 0;
+          }
+        }
+        .book-in-shelf{
+          width: 6px;
+          height: 32px;
+          display: inline-block;
+          float: left;
+          margin-right: 2px
+        }
+      }
+    }
 }
 
 footer{
