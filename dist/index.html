@@ -19,10 +19,10 @@
                 </div>
                 <div class="navigation small-5 columns">
                     <span class="book-list-link">Våra böcker</span>
-                    <span>Just nu</span>
-                    <span>Om Tilas Förlag</span>
+                    <span class="js-not-implemented">Just nu</span>
+                    <span class="js-not-implemented">Om Tilas Förlag</span>
                 </div>
-                <div class="book-shelf small-2 columns end">
+                <div class="book-shelf js-not-implemented small-2 columns end">
                     <div class="books-container text-center">
                         <span class="empty-shelf">Din Bokhylla</span>
                     </div>
@@ -34,6 +34,9 @@
 <div id="first-page-link-regions">
     <div class="book-list-link"></div>
     <div class="look-through-book"></div>
+    <div class="blog-and-news"></div>
+    <div class="placeholder-image"></div>
+    <div class="big-ben-title"></div>
 </div>
 <div class="list-view">
     <div class="row">
@@ -70,21 +73,18 @@
             <!-- Template goes here -->
         </div>
     </div><!-- /container -->
+    <div class="not-implemented"></div>
+    <div class="back-to-list-view"></div>
+    <div class="back-to-home-screen"></div>
 </div> <!-- /single-book-view -->
 
-<div class="overlay overlay-scale">
-    <button type="button" class="overlay-close">Close</button>
-    <nav>
-        <ul>
-            <li><a href="#">Hem</a></li>
-            <li><a href="#">Tips & Nyheter</a></li>
-            <li><a href="#">Kundservice</a></li>
-            <li><a href="#">Kundvagn</a></li>
-            <li><a href="#">Mitt Konto</a></li>
-        </ul>
-    </nav>
+<div class="not-yet-implemented">
+    <div class="row">
+        <div class="small-10 small-centered columns">
+            <img src="img/finns-inte-med.png" alt="">
+        </div>
+    </div>
 </div>
-
 
 <!-- TEMPLATES -->
 <script type="text/template" id="book-template">
@@ -149,7 +149,6 @@
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/hammerjs/hammer.min.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
-<script src="bower_components/color-thief/dist/color-thief.min.js"></script>
 
 <script src="js/classie.js"></script>
 <script src="js/demo1.js"></script>

@@ -18,10 +18,19 @@ App = {
     },
     bindEvents: function(){
         $(window).on('hashchange', this.newView);
+        $('.not-yet-implemented').on('click', this.hideOverlay);
+        $('.js-not-implemented').on('click', this.showOverlay);
+    },
+    hideOverlay: function() {
+        $('.not-yet-implemented').hide();
+    },
+    showOverlay: function() {
+        $('.not-yet-implemented').show();
     },
     init: function(){
         this.bindEvents();
         this.fastClick();
+        this.hideOverlay();
 
         Books.init();
         App.FirstPage.init();
@@ -54,6 +63,15 @@ App.FirstPage = {
             setTimeout(function() {
                 window.location.hash = '#11';
             }, pageLoadMilliseconds);
+        });
+        $('.blog-and-news').click(function(e) {
+            App.showOverlay();
+        });
+        $('.placeholder-image').click(function(e) {
+            App.showOverlay();
+        });
+        $('.big-ben-title').click(function(e) {
+            App.showOverlay();
         });
     }
 }
@@ -326,6 +344,16 @@ App.BookView = {
 
 
         $(".js-add-to-cart").on('click', this.addBookToCart);
+        $(".not-implemented").on('click', App.showOverlay);
+        $(".back-to-list-view").on('click', function() {
+            window.location.hash = "";
+        });
+        $(".back-to-home-screen").on('click', function() {
+            window.location.hash = "";
+            $('body').addClass('first-page');
+            $('.book-list-link').removeClass('selected-link');
+        });
+
     },
     addBookToCart: function(){
             $(".bk-list").addClass("on-top");
@@ -341,7 +369,7 @@ App.BookView = {
                 $(".bk-book").addClass('added-to-cart');
                 $('.no-more-book').removeClass('not-no-more-book');
 
-                setTimeout(function(arguments) {
+                setTimeout(function() {
                     var bookIndex = $(".bk-book").data("index"),
                         bookData = App.books[bookIndex],
                         template = _.template($('#book-in-shelf-template').html());

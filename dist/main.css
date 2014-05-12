@@ -2041,7 +2041,6 @@ body {
 }
 */
 .page-header {
-  z-index: 100;
   top: 0;
   width: 100%;
   height: 75px;
@@ -2098,6 +2097,27 @@ footer {
     -webkit-transform: translate(100%, 0px);
     -webkit-transition-delay: 0.2s;
     /* Safari */ }
+  .single-book-view .not-implemented {
+    width: 360px;
+    height: 75px;
+    position: absolute;
+    right: 130px;
+    top: 0;
+    z-index: 9999; }
+  .single-book-view .back-to-list-view {
+    width: 115px;
+    height: 75px;
+    position: absolute;
+    right: 490px;
+    top: 0;
+    z-index: 9999; }
+  .single-book-view .back-to-home-screen {
+    width: 115px;
+    height: 75px;
+    position: absolute;
+    right: 830px;
+    top: 0;
+    z-index: 9999; }
   .single-book-view .container {
     margin: auto; }
   .single-book-view .rygg-title {
@@ -2125,7 +2145,7 @@ body.first-page {
   min-height: 900px; }
   body.first-page > * {
     display: none; }
-  body.first-page .page-header {
+  body.first-page .page-header, body.first-page .not-yet-implemented {
     display: block; }
   body.first-page #first-page-link-regions {
     display: block;
@@ -2144,6 +2164,21 @@ body.first-page {
         height: 35px;
         width: 170px;
         top: 330px;
+        left: 0px; }
+      body.first-page #first-page-link-regions div.blog-and-news {
+        height: 200px;
+        width: 100%;
+        top: 430px;
+        left: 0px; }
+      body.first-page #first-page-link-regions div.placeholder-image {
+        height: 290px;
+        width: 470px;
+        top: 90px;
+        right: 0px; }
+      body.first-page #first-page-link-regions div.big-ben-title {
+        height: 40px;
+        width: 180px;
+        top: 40px;
         left: 0px; }
 
 #first-page-link-regions {
@@ -2194,86 +2229,17 @@ body.first-page {
   100% {
     opacity: 1; } }
 
-/* Overlay style */
-.overlay {
-  position: fixed;
+.not-yet-implemented {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 140, 186, 0.9); }
-
-/* Overlay closing cross */
-.overlay .overlay-close {
-  width: 80px;
-  height: 80px;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  overflow: hidden;
-  border: none;
-  background: url(../img/cross.png) no-repeat center center;
-  text-indent: 200%;
-  color: transparent;
-  outline: none;
-  z-index: 100; }
-
-/* Menu style */
-.overlay nav {
-  text-align: center;
-  position: relative;
-  top: 50%;
-  height: 60%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%); }
-
-.overlay ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: inline-block;
-  height: 100%;
-  position: relative; }
-
-.overlay ul li {
-  display: block;
-  height: 20%;
-  height: calc(100% / 5);
-  min-height: 54px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-.overlay ul li a {
-  font-size: 54px;
-  font-weight: 300;
-  display: block;
-  color: #fff;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s; }
-
-.overlay ul li a:hover, .overlay ul li a:focus {
-  color: #f0f0f0; }
-
-/* Effects */
-.overlay-scale {
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
-  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
-  transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s; }
-
-.overlay-scale.open {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
-  transition: transform 0.4s, opacity 0.4s; }
-
-@media screen and (max-height: 30.5em) {
-  .overlay nav {
-    height: 70%;
-    font-size: 34px; }
-  .overlay ul li {
-    min-height: 34px; } }
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(184, 184, 184, 0.72);
+  z-index: 99999; }
+  .not-yet-implemented img {
+    display: block;
+    width: 55%;
+    margin: 40% auto; }
